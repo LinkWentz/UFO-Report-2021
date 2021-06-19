@@ -76,4 +76,10 @@ INSERT IMAGES HERE PLEASE
 - State Population Data (I cleaned it up myself in google sheets): https://www.census.gov/data/datasets/time-series/demo/popest/2010s-state-total.html
 - Various: https://www.wikipedia.org
 
+# Libraries
+- NumPy: NumPy is the fundamental package for array computing with Python https://pypi.org/project/numpy/
+- Pandas: Python package that provides fast, flexible, and expressive data structures https://pypi.org/project/pandas/
+- matplotlib: Comprehensive library for creating static, animated, and interactive visualizations in Python https://pypi.org/project/matplotlib/
+- ephem: Python package for performing high-precision astronomy computations https://pypi.org/project/ephem/
+
 ------------------------------------------------------------------------
