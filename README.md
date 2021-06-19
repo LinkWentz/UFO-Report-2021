@@ -13,8 +13,6 @@ To start with, I've broken the analysis down into three questions, the answers t
 3. Do more UFO sightings happen during day time or night time?
 4. (Bonus) What state has the most UFO reports per capita?
 
-Before we start, a couple of notes. First of all each question is broken down into two sections; namely: methodology and results. Second, much of the approaches I took to these questions won't be reflected in the notebook. I made the final plots from plots that I used to find the trends, and as a result the initial plots are not present in the notebook. I also did quite a lot of refactoring. Ultimately I should have been committing those changes to this repository each time, but alas it is far too late to change that now.
-
 ## Question 1. When have there been spikes in UFO activity?
 ##### Methodology:
 My approach to answering this question was pretty simple. I found the cumulative reports for each day of the year across every year, and plotted them a month at a time. Whenever I found a spike I would look at that month in each year to see if it was a one-time spike or an annual event. If it was the former, the final plot would simply be the report count for each day in the month for that year. If it was the latter, the final plot would show the average reports for each day in the month across all years.
