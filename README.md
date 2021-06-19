@@ -69,4 +69,11 @@ As you can see, there isn't really a strong trend here, at least, not on the sur
 
 INSERT IMAGES HERE PLEASE
 
+# Sources
+- UFO Reports: http://www.nuforc.org/ though I used this dataset generated from nuforc instead of getting it directly https://data.world/khturner/national-ufo-reporting-center-reports
+- Cities data: https://simplemaps.com/data/us-cities
+- Latest Sunrise and Earliest Sunset: https://abc7ny.com/winter-solstice-latest-sunrise-earliest-sunset-solar-time/8593291/#:~:text=However%2C%20the%20earliest%20sunset%20date,2021%20at%207%3A20%20a.m.
+- State Population Data (I cleaned it up myself in google sheets): https://www.census.gov/data/datasets/time-series/demo/popest/2010s-state-total.html
+- Various: https://www.wikipedia.org
+
 ------------------------------------------------------------------------
