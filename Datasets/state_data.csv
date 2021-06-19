@@ -1,0 +1,53 @@
+abbreviation,state_name,population,utc_offset
+AL,Alabama,"4,863,525",-6
+AK,Alaska,"741,456",-9
+AZ,Arizona,"6,941,072",-7
+AR,Arkansas,"2,989,918",-6
+CA,California,"39,167,117",-8
+CO,Colorado,"5,539,215",-7
+CT,Connecticut,"3,578,141",-5
+DE,Delaware,"948,921",-5
+DC,District of Columbia,"685,815",-5
+FL,Florida,"20,613,477",-5
+GA,Georgia,"10,301,890",-5
+HI,Hawaii,"1,427,559",-10
+ID,Idaho,"1,682,380",-7
+IL,Illinois,"12,820,527",-6
+IN,Indiana,"6,634,304",-5
+IA,Iowa,"3,131,371",-6
+KS,Kansas,"2,910,844",-6
+KY,Kentucky,"4,438,182",-5
+LA,Louisiana,"4,678,135",-6
+ME,Maine,"1,331,317",-5
+MD,Maryland,"6,003,323",-5
+MA,Massachusetts,"6,823,608",-5
+MI,Michigan,"9,950,571",-5
+MN,Minnesota,"5,522,744",-6
+MS,Mississippi,"2,987,938",-6
+MO,Missouri,"6,087,135",-6
+MT,Montana,"1,040,859",-7
+NE,Nebraska,"1,905,616",-6
+NV,Nevada,"2,917,563",-7
+NH,New Hampshire,"1,342,307",-5
+NJ,New Jersey,"8,870,827",-5
+NM,New Mexico,"2,091,630",-7
+NY,New York,"19,633,428",-5
+NC,North Carolina,"10,154,788",-5
+ND,North Dakota,"754,434",-6
+OH,Ohio,"11,634,370",-5
+OK,Oklahoma,"3,926,331",-6
+OR,Oregon,"4,089,976",-7
+PA,Pennsylvania,"12,782,275",-5
+PR,Puerto Rico,"3,406,672",-4
+RI,Rhode Island,"1,056,770",-5
+SC,South Carolina,"4,957,968",-5
+SD,South Dakota,"862,996",-6
+TN,Tennessee,"6,646,010",-5
+TX,Texas,"27,914,410",-6
+UT,Utah,"3,041,868",-7
+VT,Vermont,"623,657",-5
+VA,Virginia,"8,410,106",-4
+WA,Washington,"7,294,771",-5
+WV,West Virginia,"1,831,023",-8
+WI,Wisconsin,"5,772,628",-5
+WY,Wyoming,"584,215",-7
