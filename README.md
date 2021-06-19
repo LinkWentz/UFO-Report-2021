@@ -1,12 +1,10 @@
 # Introduction
-In the past year, a deadly virus has taken over the entire United States. The government has failed to give us the information we all need and as a consequence, many people have denied that it's even happening. If left unchecked, the consequences could be disastrous. I'm talking, of course, about UFO fever.
+As I'm sure you're aware, there is a lot of hype around UFOs, both in my personal life and in the United States at large. This has only been exacerbated by the incoming report from the Pentagon regarding the very same subject. So as the excitement reached a fever pitch, I've taken it upon myself to do my own report on UFOs by analyzing the National UFO Reporting Center Database.
 
-That's right, with the official Pentagon report on UFO's right around the corner, and the hype building, I think it's an appropriate time to examine one of the oldest and largest collections of UFO reports on the internet: the National UFO Reporting Center database.
-
-So let's go for the biggest question of all: What are all these lights in the sky? Can we truly attribute all sightings to tricks of the light, man made aircraft, and oddly shaped clouds? Or are we in the midst of an interplanetary invasion?
+The National UFO Reporting Center was founded in 1974. This organization collects and catalogs UFO reports through made through its hotline or online, and makes those reports publicly available on its website. These reports are, for the most part, not fact checked or verified in any way. It's simply a repository for these claims, but a massive repository at that. The version of the data I got, which was made in early 2017, has well over 100,000 reports in it. And as these reports are completely unfilitered, this dataset is the perfect target to answer my main question: What causes UFO reports?
 
 # Summary
-To start with, I've broken the analysis down into three questions, the answers to which give some idea as to what causes UFO reports. These answers won't cover everything, as that would involve a much larger and more in depth data set, but we can at least find correlations between some variables to give us a general idea of what's behind UFO sightings. The questions are as follows:
+I've broken the analysis down into three questions, the answers to which give some idea as to what causes UFO reports. These answers won't cover everything, but we can at least find correlations between some variables to give us a general idea of what's behind UFO sightings. The questions are as follows:
 
 1. When have there been spikes in UFO activity?
 2. How have UFO reports changed over time?
