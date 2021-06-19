@@ -41,7 +41,7 @@ The amount of UFO sightings per year appears to have increased exponentially ove
 
 As for the reports per month, it seems that the latter half of the year accounts for more reports than the former. I expect this is for multiple reasons. Firstly, late Spring and Summer is when people usually spend the most time outside. A likely explanation for the rest of the year is that many people are travelling for the holidays. Both of these explanations would make it more likely for people to experience UFO encounters. However, again, there could be many explanations for this trend, and I can only speculate as to what they would be.
 
-![3 - Reports Per Year](https://github.com/LinkWentz/UFO-Report-2021/blob/master/Plots/4%20-%20Reports%20Per%20Month%202000-2016.mp4)
+![4 - Reports Per Month 2000-2016](https://github.com/LinkWentz/UFO-Report-2021/blob/master/Plots/4%20-%20Reports%20Per%20Month%202000-2016.gif)
 
 ## Question 3. Do more UFO sightings happen during day time or night time?
 ##### Methodology:
