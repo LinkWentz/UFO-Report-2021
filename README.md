@@ -86,7 +86,9 @@ As you can see, there isn't really a strong trend here, at least, not on the sur
 - [State Population Data](https://www.census.gov/data/datasets/time-series/demo/popest/2010s-state-total.html)
 - [Reference for State Population Editing](https://www.wikipedia.org)
 
-# Libraries
+# Dependencies
+- [Python 3.9 or higher](https://www.python.org/): The python standard library package zoneinfo is only available in 3.9 and later
+- [ipympl Backend](https://github.com/matplotlib/ipympl): Enables the interactive features of matplotlib in the Jupyter notebook and in JupyterLab.
 - [NumPy](https://pypi.org/project/numpy/): Package for array computing with Python
 - [Pandas](https://pypi.org/project/pandas/): Python package that provides fast, flexible, and expressive data structures
 - [matplotlib](https://pypi.org/project/matplotlib/): Comprehensive library for creating static, animated, and interactive visualizations in Python
