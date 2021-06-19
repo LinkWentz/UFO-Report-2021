@@ -18,9 +18,13 @@ To start with, I've broken the analysis down into three questions, the answers t
 My approach to answering this question was pretty simple. I found the cumulative reports for each day of the year across every year, and plotted them a month at a time. Whenever I found a spike I would look at that month in each year to see if it was a one-time spike or an annual event. If it was the former, the final plot would simply be the report count for each day in the month for that year. If it was the latter, the final plot would show the average reports for each day in the month across all years.
 
 ##### Results:
-In all, I found one spike related to an annual event and one related to a one off event. The annual event was, quite entertainingly, the 4th of July. The one time event appears to be a U.S. Navy missile launch on November 7th of 2015. The plots for both spikes are below.
+In all, I found one spike related to an annual event and one related to a one off event. The annual event was, quite entertainingly, the 4th of July. 
 
-INSERT IMAGES HERE PLEASE
+![1 - July Spike](https://user-images.githubusercontent.com/22262374/122638190-7165f800-d0b8-11eb-8520-ff6cd7366854.png)
+
+The one time event appears to be a U.S. Navy missile launch on November 7th of 2015.
+
+![2 - November 2015 Spike](https://github.com/LinkWentz/UFO-Report-2021/blob/master/Plots/2%20-%20November%202015%20Spike.png)
 
 ## Question 2. How have UFO reports changed over time?
 ##### Methodology:
@@ -33,9 +37,11 @@ The first part of the animation involved the counts for each year. As the years 
 ##### Results:
 The amount of UFO sightings per year appears to have increased exponentially over time. However, scaling the y-axis accordingly shows us that reports were actually happening at a pretty consistent rate before the mid-90's. I believe the reason for this is the popularization of cell phones and the internet making it much easier to report these sightings. That is surely not the only variable, and I, of course, can only speculate, but if pressed for an explanation, that is what I would go with.
 
+![3 - Reports Per Year](https://github.com/LinkWentz/UFO-Report-2021/blob/master/Plots/3%20-%20Reports%20Per%20Year.png)
+
 As for the reports per month, it seems that the latter half of the year accounts for more reports than the former. I expect this is for multiple reasons. Firstly, late Spring and Summer is when people usually spend the most time outside. A likely explanation for the rest of the year is that many people are travelling for the holidays. Both of these explanations would make it more likely for people to experience UFO encounters. However, again, there could be many explanations for this trend, and I can only speculate as to what they would be.
 
-INSERT IMAGES HERE PLEASE
+![3 - Reports Per Year](https://github.com/LinkWentz/UFO-Report-2021/blob/master/Plots/4%20-%20Reports%20Per%20Month%202000-2016.mp4)
 
 ## Question 3. Do more UFO sightings happen during day time or night time?
 ##### Methodology:
@@ -54,9 +60,14 @@ The next thing I wanted was a plot that determined how many sightings occurred i
 However, a simple gradient from the center wasn't going to cut it, so instead I made two gradients. The first faded from a dark purple to yellow, and ended at what I could find on the internet was the hour in which latest sunrise of the year occurred in the United States. I did the opposite for the tail of the plot, using the earliest sunset. Between the latest sunrise and earliest sunset, I left the bars entirely yellow, as a way of showing that at no point were any of the sightings that took place within those hours during the night time.
 
 ##### Results:
-As is shown in the first plot, the overwhelming majority of sightings (~79%), take place at night. We can also see that there is an incredibly smooth relationship between how deep into night an hour is and how many sightings occur within that hour; especially if you account for the typical period a person is expected to be asleep. Even more satisfying is the degree to which sightings during sunny hours remain consistent.
+As is shown in the first plot, the overwhelming majority of sightings (~79%), take place at night. 
 
-INSERT IMAGES HERE PLEASE
+![5 - Day v Night Sightings](https://github.com/LinkWentz/UFO-Report-2021/blob/master/Plots/5%20-%20Day%20v%20Night%20Sightings.png)
+
+In the second plot, we can see that there is an incredibly smooth relationship between how deep into night an hour is and how many sightings occur within that hour; especially if you account for the typical period a person is expected to be asleep. Even more satisfying is the degree to which sightings during sunny hours remain consistent.
+
+
+![6 - Reports By Hour](https://github.com/LinkWentz/UFO-Report-2021/blob/master/Plots/6%20-%20Reports%20By%20Hour.png)
 
 ## Bonus Question. What state has the most UFO reports per capita?
 ##### Methodology:
@@ -65,7 +76,7 @@ For this question, I used census data to divide the amount of sightings in each 
 ##### Results:
 As you can see, there isn't really a strong trend here, at least, not on the surface. Though Washington does have the most sightings per capita, looking at the x-axis there isn't much of a difference between any state. Puerto Rico has the lowest, however that is mostly due to the fact that there are only 36 reports from Puerto Rico in the dataset. What's more, the plot is very clumsy, with the y-axis being almost illegible. Overall, there was really nothing worthy of reporting here, however, I left it in because I personally find it fun. I also did want to comment that their rankings on this plot seem roughly opposite to their rankings in population density, though that is only a comment, not a claim.
 
-INSERT IMAGES HERE PLEASE
+![7 - Reports Per Capita Per State](https://github.com/LinkWentz/UFO-Report-2021/blob/master/Plots/7%20-%20Reports%20Per%20Capita%20Per%20State.png)
 
 # Sources
 - [NUFORC](http://www.nuforc.org/)
