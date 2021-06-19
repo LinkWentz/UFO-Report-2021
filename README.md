@@ -17,7 +17,7 @@ Before we start, a couple of notes. First of all each question is broken down in
 
 ## Question 1. When have there been spikes in UFO activity?
 ##### Methodology:
-My approach to answering this question was pretty simple. I found the cumulative reports for each day of the year across every year, and plotted them a month at a time. Whenever I found a spike I would look at that month in each year to see if it was a one-time spike or an annual event. If it was the former, the final plot would simply be the report count for each day in the month for that year. If it was the latter, the final plot would show the average reports for each day in the month across all years since 2000.
+My approach to answering this question was pretty simple. I found the cumulative reports for each day of the year across every year, and plotted them a month at a time. Whenever I found a spike I would look at that month in each year to see if it was a one-time spike or an annual event. If it was the former, the final plot would simply be the report count for each day in the month for that year. If it was the latter, the final plot would show the average reports for each day in the month across all years.
 
 ##### Results:
 In all, I found one spike related to an annual event and one related to a one off event. The annual event was, quite entertainingly, the 4th of July. The one time event appears to be a U.S. Navy missile launch on November 7th of 2015. The plots for both spikes are below.
@@ -26,7 +26,7 @@ INSERT IMAGES HERE PLEASE
 
 ## Question 2. How have UFO reports changed over time?
 ##### Methodology:
-This was another relatively simple question. To answer this, I took two approaches. First, I simply plotted the amount of reports for each year. There was already a very convenient year column in the NUFORC data set, so all I really had to do was make a histogram of that column. As you'll see I limited the plot to a period of 60 years, from 1956 to 2016. The upper limit was due to the fact that the dataset I used was scraped from NUFORC's website in early 2017, meaning that a count of the UFO reports for that year wouldn't have been useable. The lower limit was decided on simply because NUFORC was founded in 1974, and therefore reports before that date are sparse at best and all retroactively added. I believed this would have added junk to the chart without providing reliable information.
+This was another relatively simple question. To answer this, I took two approaches. First, I simply plotted the amount of reports for each year. There was already a very convenient year column in the NUFORC data set, so all I really had to do was make a histogram of that column. As you'll see I limited the plot to a period of 42 years, from 1974 to 2016. The upper limit was due to the fact that the dataset I used was scraped from NUFORC's website in early 2017, meaning that a count of the UFO reports for that year wouldn't have been useable. The lower limit was decided on simply because NUFORC was founded in 1974, and therefore reports before that date are sparse at best and all retroactively added. I believed this would have added junk to the chart without providing reliable information.
 
 Second, I decided to take a detailed look at how many reports were made each month. Specifically, I wanted to look at each month's total UFO reports for each year individually. I also wanted to see if there were months that were typically more or less active. To communicate this visually, I decided to use an animation. 
 
