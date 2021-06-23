@@ -111,7 +111,7 @@ def scrape_pages(urls, delay, i = 0):
     if i < len(urls):
         # Recurse after a specified delay. Threads are used so the delay isn't
         # padded by the run time of the function.
-        scrape_next = lambda: scrape_pages(urls, delay, i + 1, dataframes)
+        scrape_next = lambda: scrape_pages(urls, delay, i + 1)
         threading.Timer(delay, scrape_next).start()
         # Estimate remaining time and output that estimate to the console.
         time_estimate = int((len(urls) - i) * delay)
