@@ -95,7 +95,9 @@ def compile_and_export(dataframes, path):
     data = pd.concat(dataframes, ignore_index = True)
     data.to_csv(path)
 
-def scrape_pages(urls, delay, i = 0, dataframes = []):
+dataframes = []
+
+def scrape_pages(urls, delay, i = 0):
     """Starts a recursion loop which will scrape the provided list of NUFROC
     database urls. When completed this function will output the data into the
     datasets directory.
@@ -107,16 +109,18 @@ def scrape_pages(urls, delay, i = 0, dataframes = []):
         None
     """
     if i < len(urls):
+        # Recurse after a specified delay. Threads are used so the delay isn't
+        # padded by the run time of the function.
+        scrape_next = lambda: scrape_pages(urls, delay, i + 1, dataframes)
+        threading.Timer(delay, scrape_next).start()
         # Estimate remaining time and output that estimate to the console.
         time_estimate = int((len(urls) - i) * delay)
         print('Time remaining: {} seconds'.format(time_estimate), end = '\r')
         
         dataframes.append(grab_table_from_url(urls[i]))
-        # Recurse after a specified delay. Threads are used so the delay isn't
-        # padded by the run time of the function.
-        scrape_next = lambda: scrape_pages(urls, delay, i + 1, dataframes)
-        threading.Timer(delay, scrape_next).start()
     else:
+        # Delay to allow the last scrape operation to complete.
+        time.sleep(5)
         
         compile_and_export(dataframes, '../Datasets/nuforc_events_new.csv')
         # Alert user of completed scrape.
