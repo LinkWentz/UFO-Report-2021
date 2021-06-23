@@ -10,64 +10,40 @@ import pandas as pd
 
 def make_soup_from_url(url):
     """Returns a BeautifulSoup object made from the page at the provided url.
-    
-    ----------------------------------------------------------------------------
-    
-    args:
-        url - string url of the webpage you want to soupify
-    
-    returns:
-        BeautifulSoup object
     """
     request = Request(url, headers = {'User-Agent':'Mozilla/5.0'})
-    page = BeautifulSoup(urlopen(request).read(), 'html.parser')
-    return page
+    soup = BeautifulSoup(urlopen(request).read(), 'html.parser')
+    
+    return soup
 
 def grab_url_from_row(row, 
-                      link_index = 0,
+                      link_pos = 0,
                       url_template = 'http://www.nuforc.org/webreports/{}'):
     """This function grabs the href from the specified index of a tr element.
-    
-    ----------------------------------------------------------------------------
-    
+
     args:
         row - iterable of bs4.element.Tag td objects.
-        
     optional_args:
-        link_index - integer position of link element in row
+        link_pos - integer position of link element in row
             defaults to 0
-        url_template - optional template to insert found href into
+        url_template - optional template to which the href should be inserted
             defaults to 'http://www.nuforc.org/webreports/{}'
-            
-    returns:
-        string containing href found in row
     """
-    # Grab href from specified element in table.
     row = row.findAll('td')
-    link = row[link_index]
-    link = link.find('font').find('a')['href']
-    # Format with template because the href only contains the non-standard part.
-    link = url_template.format(link)
+    link_td = row[link_pos]
+    url_tail = link_td.find('font').find('a')['href']
+    # Format with template as the 'a' tag only contains the tail of the url.
+    url = url_template.format(url_tail)
     
-    return link
+    return url
 
 def grab_row_data(row_element, year):
-    """This function compiles all the data in a row on the nuforc database into
+    """This function compiles all the data in a row on the NUFORC database into
     a matching pandas series.
     
-    ----------------------------------------------------------------------------
-    
     args:
-        row_element - bs4.element.Tag of the type tr that contains td elements. 
-        Needs to specifically have the schema:
-        | Date/Time | City | State | Shape | Duration | Summary | Posted |
-        year - integer to substitute for the year value, as the year is not
-        given in full anywhere in the row.
-            
-    returns:
-        pandas series of the schema:
-        | event_time | event_date | year | month | day | hour | minute | second
-        | city | state | shape | duration | summary | event_url |
+        row_element - tr element containing td tags
+        year - year in which the sighting on the provided row takes place
     """
     # Row is just tr element so create a list of all the td elements in each.
     row = row_element.findAll('td')
@@ -75,8 +51,11 @@ def grab_row_data(row_element, year):
     # needed.
     time = re.split('[:/ ]', row[0].text)
     time = list(map(lambda x : '0{}'.format(x) if len(x) == 1 else x, time))
+    # Substitute "99" for missing minute and second values if needed.
     time += ['99'] * (5 - len(time))
+    # Reorder the time list to [Year, Month, Day, Minute, Second].
     time = [time[i] for i in [2, 1, 0, 3, 4]]
+    # Replace year with year argument as the row only has the 2 digit year.
     time[0] = year
     # Assign all row values in correct order.
     s = pd.Series(dtype = 'object')
@@ -99,20 +78,8 @@ def grab_row_data(row_element, year):
     return s
 
 def grab_table_from_url(url):
-    """This function finds the first table on the provided webpage and converts
-    that table into a pandas dataframe. This function only works with NUFORC
-    database webpages like the one below.
-    
-    Example: http://www.nuforc.org/webreports/ndxe202105.html
-    
-    ----------------------------------------------------------------------------
-    
-    args:
-        url - string url that links to a NUFORC database webpage like the one
-        above
-            
-    returns:
-        pandas dataframe of the first table on the provided page
+    """This function finds the first table on the provided NUFORC
+    database webpage and converts that table into a pandas dataframe.
     """
     page = make_soup_from_url(url)
     rows = page.find('tbody').findAll('tr')
@@ -120,12 +87,6 @@ def grab_table_from_url(url):
     rows = list(map(grab_row_data, rows, np.full(len(rows), url[-11:-7])))
     
     return pd.DataFrame(rows)
-
-# From the directory page create list of URLs to scrape.
-homepage = make_soup_from_url('http://www.nuforc.org/webreports/ndxevent.html')
-urls = list(map(grab_url_from_row,
-                homepage.find('tbody').findAll('tr')[:-1]))
-urls = urls[0:3]
 
 def compile_and_export(dataframes, path):
     """Compiles provided iterable of dataframes and exports it to the default
@@ -135,20 +96,38 @@ def compile_and_export(dataframes, path):
     data.to_csv(path)
 
 def scrape_pages(urls, delay, i = 0, dataframes = []):
+    """Starts a recursion loop which will scrape the provided list of NUFROC
+    database urls. When completed this function will output the data into the
+    datasets directory.
     
-    time_estimate = int((len(urls) - i) * delay)
-    print('Time remaining: {} seconds'.format(time_estimate), 
-          end = '\r')
-    
+    args:
+        urls - list of urls to scrape
+        delay - quantity of seconds between scrapes
+    returns:
+        None
+    """
     if i < len(urls):
-        dataframes.append(grab_table_from_url(urls[i]))
+        # Estimate remaining time and output that estimate to the console.
+        time_estimate = int((len(urls) - i) * delay)
+        print('Time remaining: {} seconds'.format(time_estimate), end = '\r')
         
+        dataframes.append(grab_table_from_url(urls[i]))
+        # Recurse after a specified delay. Threads are used so the delay isn't
+        # padded by the run time of the function.
         scrape_next = lambda: scrape_pages(urls, delay, i + 1, dataframes)
         threading.Timer(delay, scrape_next).start()
     else:
+        
         compile_and_export(dataframes, '../Datasets/nuforc_events_new.csv')
-        # Completion messages
+        # Alert user of completed scrape.
         print('Time remaining: 0 seconds')
         win32api.MessageBox(0, 'Scraping Complete!', '', 0x00001000)
+
+
+# From the directory page create list of URLs to scrape.
+homepage = make_soup_from_url('http://www.nuforc.org/webreports/ndxevent.html')
+homepage_rows = homepage.find('tbody').findAll('tr')[:-1]
+
+urls = list(map(grab_url_from_row, homepage_rows))
 
 scrape_pages(urls, 2)
