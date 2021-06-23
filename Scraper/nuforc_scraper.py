@@ -1,11 +1,28 @@
 from urllib.request import Request, urlopen
 import re
 import time
+import win32api
+import threading
 
 from bs4 import BeautifulSoup
 import numpy as np
 import pandas as pd
-# This is needed because the href only 
+
+def make_soup_from_url(url):
+    """Returns a BeautifulSoup object made from the page at the provided url.
+    
+    ----------------------------------------------------------------------------
+    
+    args:
+        url - string url of the webpage you want to soupify
+    
+    returns:
+        BeautifulSoup object
+    """
+    request = Request(url, headers = {'User-Agent':'Mozilla/5.0'})
+    page = BeautifulSoup(urlopen(request).read(), 'html.parser')
+    return page
+
 def grab_url_from_row(row, 
                       link_index = 0,
                       url_template = 'http://www.nuforc.org/webreports/{}'):
@@ -34,7 +51,7 @@ def grab_url_from_row(row,
     
     return link
 
-def grab_row_data(row_element):
+def grab_row_data(row_element, year):
     """This function compiles all the data in a row on the nuforc database into
     a matching pandas series.
     
@@ -44,6 +61,8 @@ def grab_row_data(row_element):
         row_element - bs4.element.Tag of the type tr that contains td elements. 
         Needs to specifically have the schema:
         | Date/Time | City | State | Shape | Duration | Summary | Posted |
+        year - integer to substitute for the year value, as the year is not
+        given in full anywhere in the row.
             
     returns:
         pandas series of the schema:
@@ -57,6 +76,8 @@ def grab_row_data(row_element):
     time = re.split('[:/ ]', row[0].text)
     time = list(map(lambda x : '0{}'.format(x) if len(x) == 1 else x, time))
     time += ['99'] * (5 - len(time))
+    time = [time[i] for i in [2, 1, 0, 3, 4]]
+    time[0] = year
     # Assign all row values in correct order.
     s = pd.Series(dtype = 'object')
     s['event_time'] = '{}-{}-{}T{}:{}:00Z'.format(*time)
@@ -93,34 +114,41 @@ def grab_table_from_url(url):
     returns:
         pandas dataframe of the first table on the provided page
     """
-    request = Request(url, headers = {'User-Agent':'Mozilla/5.0'})
-    page = BeautifulSoup(urlopen(request).read(), 'html.parser')
+    page = make_soup_from_url(url)
     rows = page.find('tbody').findAll('tr')
     
-    rows = list(map(grab_row_data, rows))
+    rows = list(map(grab_row_data, rows, np.full(len(rows), url[-11:-7])))
     
     return pd.DataFrame(rows)
 
 # From the directory page create list of URLs to scrape.
-homepage = Request('http://www.nuforc.org/webreports/ndxevent.html', 
-                   headers = {'User-Agent':'Mozilla/5.0'})
-homepage = BeautifulSoup(urlopen(homepage).read(), 'html.parser')
+homepage = make_soup_from_url('http://www.nuforc.org/webreports/ndxevent.html')
 urls = list(map(grab_url_from_row,
                 homepage.find('tbody').findAll('tr')[:-1]))
 urls = urls[0:3]
 
-dataframes = []
-# Added a delay because even if NUFORC doesn't have scraping protection I don't
-# want to be rude.
-delay = 2
-for i, url in enumerate(urls):
-    time.sleep(delay)
+def compile_and_export(dataframes, path):
+    """Compiles provided iterable of dataframes and exports it to the default
+    path.
+    """
+    data = pd.concat(dataframes, ignore_index = True)
+    data.to_csv(path)
+
+def scrape_pages(urls, delay, i = 0, dataframes = []):
     
     time_estimate = int((len(urls) - i) * delay)
     print('Time remaining: {} seconds'.format(time_estimate), 
           end = '\r')
     
-    dataframes.append(grab_table_from_url(url))
+    if i < len(urls):
+        dataframes.append(grab_table_from_url(urls[i]))
+        
+        scrape_next = lambda: scrape_pages(urls, delay, i + 1, dataframes)
+        threading.Timer(delay, scrape_next).start()
+    else:
+        compile_and_export(dataframes, '../Datasets/nuforc_events_new.csv')
+        # Completion messages
+        print('Time remaining: 0 seconds')
+        win32api.MessageBox(0, 'Scraping Complete!', '', 0x00001000)
 
-data = pd.concat(dataframes, ignore_index = True)
-data.to_csv('../Datasets/nuforc_events_new.csv')
+scrape_pages(urls, 2)
