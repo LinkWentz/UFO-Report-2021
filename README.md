@@ -3,6 +3,8 @@ As I'm sure you're aware, there is a lot of hype around UFOs in the United State
 
 The National UFO Reporting Center was founded in 1974. This organization collects and catalogs UFO reports made through its hotline or online, and makes those reports publicly available on its website. These claims are given the once over for obvious pranks, but aside from that not fact checked or verified in any way. It's simply a repository for these reports; but a massive repository at that. The database has well over 100,000 entries in it. And as these reports are completely unfiltered, this dataset is the perfect target to answer my main question: What causes UFO reports?
 
+If you want to see the article for which this analysis was done, go to [Medium](https://linkwentz.medium.com/the-june-2021-ufo-report-f1aabc63c827).
+
 # Summary
 I've broken the analysis down into three questions, the answers to which give some idea as to what causes UFO reports. These answers won't cover everything, but we can at least find correlations between some variables to give us a general idea of what's behind UFO sightings. The questions are as follows:
 
