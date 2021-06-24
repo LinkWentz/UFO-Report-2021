@@ -1,7 +1,7 @@
 # Introduction
-As I'm sure you're aware, there is a lot of hype around UFOs, both in my personal life and in the United States at large. This has only been exacerbated by the incoming report from the Pentagon regarding the very same subject. So as the excitement reaches a fever pitch, I've taken it upon myself to do my own report on UFOs by analyzing the National UFO Reporting Center Database.
+As I'm sure you're aware, there is a lot of hype around UFOs in the United States. This has only been exacerbated by the incoming report from the Pentagon regarding the very same subject. So as the excitement reaches a fever pitch, I've taken it upon myself to do my own report on UFOs by analyzing the National UFO Reporting Center Database.
 
-The National UFO Reporting Center was founded in 1974. This organization collects and catalogs UFO reports made through its hotline or online, and makes those reports publicly available on its website. These claims are, for the most part, not fact checked or verified in any way. It's simply a repository for these reports; but a massive repository at that. The database has well over 100,000 entries in it. And as these reports are completely unfilitered, this dataset is the perfect target to answer my main question: What causes UFO reports?
+The National UFO Reporting Center was founded in 1974. This organization collects and catalogs UFO reports made through its hotline or online, and makes those reports publicly available on its website. These claims are given the once over for obvious pranks, but aside from that not fact checked or verified in any way. It's simply a repository for these reports; but a massive repository at that. The database has well over 100,000 entries in it. And as these reports are completely unfiltered, this dataset is the perfect target to answer my main question: What causes UFO reports?
 
 # Summary
 I've broken the analysis down into three questions, the answers to which give some idea as to what causes UFO reports. These answers won't cover everything, but we can at least find correlations between some variables to give us a general idea of what's behind UFO sightings. The questions are as follows:
@@ -32,7 +32,7 @@ I decided to take a detailed look at how many reports were made each month. Spec
 The first part of the animation involved the counts for each year. As the years went on, these counts would be layered over each other, one after the other. However, the counts alone didn't work. As you'll see, UFO sightings have been increasing year over year. To account for this, I decided to express each month's sightings as the percentage of the year's sightings that took place within that month. This made each year's trend comparable. The second part of the animation simply highlights the minimum and maximum value for each month from 2000-2020. Of note is that I filtered out the 4th of July to ensure that July wouldn't obscure the overall trend.
 
 ##### Results:
-It seems that the latter half of the year accounts for more reports than the former. I expect this is for multiple reasons. Firstly, late Spring and Summer is when people usually spend the most time outside. A likely explanation for the rest of the year is that many people are travelling for the holidays. Both of these explanations would make it more likely for people to experience UFO encounters. However, again, there could be many explanations for this trend, and I can only speculate as to what they would be.
+It seems that the latter half of the year accounts for more reports than the former. I expect this is for multiple reasons. Firstly, late Spring and Summer is when people usually spend the most time outside. A likely explanation for the rest of the year is that many people are travelling for the holidays. Both of these explanations would make it more likely for people to experience UFO encounters. However, again, there could be many explanations for this trend, and I can only speculate as to what they would be. One last note: the year 2020 is most certainly an outlier, but I left it in as I believe it actually helps to highlight how strong the typical trend actually is.
 
 ![3 - Reports Per Month 2000-2020](https://github.com/LinkWentz/UFO-Report-2021/blob/master/Plots/3%20-%20Reports%20Per%20Month%202000-2020.gif)
 
@@ -53,20 +53,20 @@ The next thing I wanted was a plot that determined how many sightings occurred i
 However, a simple gradient from the center wasn't going to cut it, so instead I made two gradients. The first faded from a dark purple to yellow, and ended at what I could find on the internet was the hour in which latest sunrise of the year occurred in the United States. I did the opposite for the tail of the plot, using the earliest sunset. Between the latest sunrise and earliest sunset, I left the bars entirely yellow, as a way of showing that at no point were any of the sightings that took place within those hours during the night time.
 
 ##### Results:
-As is shown in this plot, the overwhelming majority of sightings (~79%), take place at night. 
+As is shown in this plot, the overwhelming majority of sightings (~78%), take place at night. 
 
 ![4 - Day v Night Sightings](https://github.com/LinkWentz/UFO-Report-2021/blob/master/Plots/4%20-%20Day%20v%20Night%20Sightings.png)
 
-In the second plot, we can see that there is an incredibly smooth relationship between how typical it is for an hour to be dark and how many sightings occur within that hour; especially if you account for the typical period a person is expected to be asleep. Even more satisfying is the degree to which sightings during sunny hours remain consistent.
+In the second plot, we can see that there is an incredibly smooth relationship between how typical it is for an hour to be dark and how many sightings occur within that hour; especially if you account for the typical period a person is expected to be asleep. Even more satisfying is the degree to which the amount of sightings during sunny hours remain consistent.
 
 ![5 - Reports By Hour](https://github.com/LinkWentz/UFO-Report-2021/blob/master/Plots/5%20-%20Reports%20By%20Hour.png)
 
-## (Bonus) Question 4. What state has the most UFO reports per capita?
+## (Bonus) Question 4. How has the amount of UFO sightings per year changed over time?
 ##### Methodology:
-This was another relatively simple question. To answer it I plotted the amount of reports for each year. There was already a very convenient year column in the NUFORC data set, so all I really had to do was make a histogram of that column. As you'll see I limited the plot to a period of 42 years, from 1974 to 2020. The lower limit was decided on simply because NUFORC was founded in 1974, and therefore reports before that date are sparse at best and all retroactively added. I believed this would have added junk to the chart without providing reliable information.
+This was another relatively simple question. To answer it I plotted the amount of reports for each year. There was already a very convenient year column in the NUFORC data set, so all I really had to do was make a histogram of that column. As you'll see I limited the plot to a period of 46 years, from 1974 to 2020. The lower limit was decided on simply because NUFORC was founded in 1974, and therefore reports before that date are sparse at best and all retroactively added. I believed this would have added junk to the chart without providing reliable information.
 
 ##### Results:
-The amount of UFO sightings per year appears to have increased exponentially over time. However, scaling the y-axis accordingly shows us that reports were actually happening at a pretty consistent rate before the mid-90's. I believe the reason for this is the popularization of cell phones and the internet making it much easier to report these sightings. That is surely not the only variable, and I, of course, can only speculate, but if pressed for an explanation, that is what I would go with.
+The amount of UFO sightings per year appears to have increased exponentially over time. However, scaling the y-axis accordingly shows us that reports were actually happening at a pretty consistent rate before the mid-90's. I believe the reason for this is the popularization of cell phones and the internet making it much easier to report these sightings, as well as raising awareness of NUFORC.
 
 ![6 - Reports Per Year](https://github.com/LinkWentz/UFO-Report-2021/blob/master/Plots/6%20-%20Reports%20Per%20Year.png)
 
@@ -75,9 +75,12 @@ The amount of UFO sightings per year appears to have increased exponentially ove
 For this question, I used census data to divide the amount of sightings in each state by their respective populations. I then plotted these sightings from highest to lowest. There's not much more to say about this question, except to explain why I didn't include it in the final article. From a methodology standpoint, I didn't know if this was an appropriate way to go about measuring reports per capita. The sightings take place over multiple years, but the population measures are estimates from 2019. I didn't feel confident that any trend I found would be reliable, which brings me to the results.
 
 ##### Results:
-As you can see, there isn't really a strong trend here, at least, not on the surface. Though Washington does have the most sightings per capita, looking at the x-axis there isn't much of a difference between any state. Puerto Rico has the lowest, however that is mostly due to the fact that there are only 36 reports from Puerto Rico in the dataset. What's more, the plot is very clumsy, with the y-axis being almost illegible. Overall, there was really nothing worthy of reporting here, however, I left it in because I personally find it fun. I also did want to comment that their rankings on this plot seem roughly opposite to their rankings in population density, though that is only a comment, not a claim.
+As you can see, there isn't really a strong trend here, at least, not on the surface. Though Washington does have the most sightings per capita, looking at the x-axis there isn't much of a difference between any state. Puerto Rico has the lowest, however that is mostly due to the fact that there are less than 100 reports from Puerto Rico in the dataset. What's more, the plot is very clumsy, with the y-axis being almost illegible. Overall, there was really nothing worthy of reporting here, however, I left it in because I personally find it fun. I also did want to comment that their rankings on this plot seem roughly opposite to their rankings in population density, though that is only a comment, not a claim.
 
 ![7 - Reports Per Capita Per State](https://github.com/LinkWentz/UFO-Report-2021/blob/master/Plots/7%20-%20Reports%20Per%20Capita%20Per%20State.png)
+
+# Note on the Dataset
+The dataset was initially from the website data.world and specifically a user named khturner. I used that dataset for most of the development of this project. However, this dataset didn't have results after early 2017, so I took it upon myself to update the dataset with the latest sightings from NUFORC. For more detail, and to get the dataset itself, you can go to the [NUFORC-Dataset](https://github.com/LinkWentz/NUFORC-Dataset) repository on my GitHub.
 
 # Sources
 - [NUFORC](http://www.nuforc.org/)
